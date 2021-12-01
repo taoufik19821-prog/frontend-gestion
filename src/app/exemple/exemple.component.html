@@ -1,0 +1,31 @@
+
+<div class="container py-5 h-100">
+  <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+  <h1 >appcomponent :le composant racine</h1>
+<div [hidden]="hideinter" [style]="changeBackground()">
+  <h2>interpolation </h2>
+  <p>personne : {{personne}} </p>
+  <p>age : {{age}} </p>
+  <p>adresse : {{adresse.rue}} {{adresse.city}}  </p>
+  <p>Email : {{getemail()}}</p>
+</div>
+<div>
+<h2>property binding</h2>
+<p [hidden]="hide">bonjour Mr:{{personne}}</p>
+
+<button class="btn btn-outline-success"(click)="affichage()">Action</button>
+<button class="btn btn-primary " [disabled]="activated">Disabled or enabled</button>
+</div>
+<div>
+<h2>event binding</h2>
+<button class="btn btn-primary" (click)="hideinterp()">hideinterpolation</button>
+
+</div>
+<div>
+  <h2>two way databinding</h2>
+  <input type="text" placeholder="nom" name="t1" [(ngModel)]="personne" ><br>
+  <input type="text" placeholder="couleur" name="t2" [(ngModel)]="couleur" ()>
+</div>
+
+</div></div>

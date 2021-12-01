@@ -1,0 +1,55 @@
+<style>
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+</style>
+<div>
+  <form  class="form-inline my-2 my-lg-0 " (ngSubmit)="affichername()">
+
+      <input type="text" id="fo1" name="name"  class="form-control input-small" placeholder="Recherche" [(ngModel)]="namesearche" required ngModel #l="ngModel" />
+      <button class="btn btn-primary" (click)="affichername()"  type="submit">Recherche</button>
+      <br><div class="alert alert-danger" *ngIf="l.invalid && (l.touched)"  >
+        the Name is not found!!
+          </div>
+   
+<table >
+ 
+  <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>prenom</th>
+      <th>Email</th>
+      <th>password</th>
+      <th>Grade</th>
+      <th>Action</th>
+      </tr>
+      <tr *ngFor="let mydata of table">
+      <td>{{mydata.id}}</td>
+      <td>{{mydata.nom}}</td>
+      <td>{{mydata.prenom}}</td>
+      <td>{{mydata.email}}</td>
+      <td>{{mydata.password}}</td>
+      <td>{{mydata.grade}}</td>
+      <td>
+        <button class="btn btn-danger " (click)="supprimer(mydata.id)"  type="submit"  >Supprimer</button>
+        <button class="btn btn-primary " (click)="edit()" >   Edit  </button>
+      </td>
+    </tr>
+
+    </table>
+  </form>
+</div>

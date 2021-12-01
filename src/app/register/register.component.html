@@ -1,0 +1,70 @@
+
+     <div class="container h-100">
+
+     <form  #f="ngForm" (ngSubmit)="save(f)"  >
+     
+               <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inscription?</p>
+       
+                          <div class="form-group flex-fill mb-0">
+                           
+                            <input type="text" id="fo1" name="loginus"  class="form-control" placeholder="Nom"  required ngModel #l="ngModel"/>
+                            <br><div class="alert alert-danger" *ngIf="l.invalid && l.touched"  >
+                                the login is required!!
+                                  </div>
+                          </div>
+                        
+                          <div class="form-group flex-fill mb-0">
+                          
+                           <input type="email" id="fo2" name="emailus" class="form-control" placeholder="Email"  required ngModel #e="ngModel" pattern="[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}"/>
+                               <br><div class="alert alert-danger" *ngIf="e.invalid && e.touched"  >
+                               <div *ngIf="e.errors?.['required']" >email is required</div>
+                               <div *ngIf="e.errors?.['pattern']" >email is  not valide</div>
+                           
+                              </div>
+                          
+                        </div>
+                                
+                          <div class="form-group flex-fill mb-0">
+                           <input type="password" id="fo3"name="pdwus" class="form-control" placeholder="Password"  required  ngModel #p="ngModel" [(ngModel)]="password"/>
+                            <br><div class="alert alert-danger" *ngIf="p.invalid && p.touched"  >
+                                the passwordis required!!
+                           </div>
+                          </div>
+                        
+                          <div class="form-group flex-fill mb-0">
+                            <input type="password" id="fo4" name="pdwusc" class="form-control" placeholder="Confirmer"  required ngModel #c="ngModel" [(ngModel)]="confirmer" />
+                            <br><div class="alert alert-danger" *ngIf="c.invalid && (c.touched && p.value!=c.value )"  >
+                                the confimation is required!!
+                                  </div>
+                           <div class="alert alert-danger" *ngIf="c.value!=p.value" >password not confirmed</div>
+                          </div>
+
+                          <div class="form-group flex-fill mb-0">
+                            <input class="form-check-input me-2" type="checkbox" name="checkb" value=""  id="fo5"  required ngModel #check/>
+                            <label class="form-check-label" >
+                            J'accepte 
+                         <br><div class="alert alert-primary" *ngIf="!check.checked"   >
+                          check this!!
+                            </div>
+                         </label>
+                        </div>
+
+                        <div   class="form-group justify-content-center mx-4 mb-3 mb-lg-4">
+                        
+                          <button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="!f.valid" type="submit">Register</button>
+                        </div>
+                     
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+      
+                      <img src="./assets/images/register.png" class="img-fluid" alt="Sample image">
+      
+                    </div>
+                  </div>
+               
+             
+     
+    </form> 
+  </div>
